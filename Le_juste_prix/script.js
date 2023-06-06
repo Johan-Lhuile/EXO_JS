@@ -9,7 +9,7 @@ const reload = document.querySelector("#reload");
 const submit = document.querySelector("#valider");
 let i = 10;
 
-const recompense = ["un apple wish", "un sushi en plastique", "une boite à meeeeuuuhhhh"]
+const recompense = ["un iphone wish", "un sushi en plastique", "une boite à meeeeuuuhhhh"]
 
 let randomrecompense = Math.floor(Math.random() * recompense.length);
 
@@ -30,7 +30,7 @@ function gagner() {
     if (parseInt(essai.value) === price && 0 < i ) {
         // console.log("gagner");
         // console.log(i);
-        createNewH3("FELICITATION!!!! Vous avez gagné un(e) " + recompense[randomrecompense]);
+        createNewH3("FELICITATION!!!! Vous avez gagné un(e) : " + recompense[randomrecompense]);
         essai.disabled = true; 
         submit.disabled = true; 
         essai.value = "";
