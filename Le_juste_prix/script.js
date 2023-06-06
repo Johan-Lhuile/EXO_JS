@@ -21,9 +21,13 @@ function decompte(i) {
 
 function gagner() {
 
-
-    if (parseInt(essai.value) === price && 0 < i < 7) {
-
+    if (parseInt(essai.value) === price && 0 < i ) {
+        console.log("gagner");
+        console.log(i);
+        createNewH3("GAGNER!!!");
+        essai.disabled = true; 
+        submit.disabled = true; 
+        essai.value = "";
     }
 }
 
@@ -31,8 +35,12 @@ function gagner() {
 
 function perdu() { 
     
-    if ( i == 0) {}
-
+    console.log("perdu");
+    console.log(i);
+    createNewH3("PERDU, Allez recommencez");
+    essai.disabled = true; 
+    submit.disabled = true;
+    essai.value = "";
 }
 
 
@@ -40,68 +48,45 @@ function propose(input) {
 
     
     
-    if (parseInt(essai.value) < price && 0 < i < 7) 
+    if (parseInt(essai.value) < price) 
         
     {
         console.log("grand");
         console.log(i);
         createNewH3("le juste prix est plus grand");
+        essai.value = "";
 
     }
-    else if (parseInt(essai.value) > price && 0 < i < 7) {
+    else if (parseInt(essai.value) > price) {
         console.log("petit");
         console.log(i);
         createNewH3("le juste prix est plus petit");
+        essai.value = "";
+    } else {
+        gagner()
         
-    } else if (parseInt(essai.value) === price && 0 < i < 7) {
-        console.log("gagner");
-        console.log(i);
-        createNewH3("GAGNER!!!");
-        
-    } else if (i === 0) {
-
-        console.log("perdu");
-        console.log(i);
-        createNewH3("PERDU, Allez recommencez");
+    } if (i === 0) {
+        perdu ()
     }
-// console.log(input.value);
+
 decompte("il te reste " + i + " essaie(s)")
 }
 
 essai.addEventListener("keydown", function (event) {
-if (event.key === "Enter" && 0 < i < 7) {
+if (event.key === "Enter" && i > 0) {
     console.log(event);
-    
-    propose(this);
     i--
-    
-} else if (i === 0) {
-    console.log("perdu");
-    console.log(i);
-    createNewH3("PERDU, Allez recommencez");
-}  
+    propose(this);
+    // essai.value = "";
+} 
+
 })
 
-submit.addEventListener("clic", function (propose) {
-    
-        
+
+submit.addEventListener("click", function () {
+    if ( i > 0) {
+        i--
         propose(this);
-        
+        essai.value = "";
     }
-    );
-    
-
-reload.addEventListener("clic", function () {
-    
-        window.location.reload()
-    }
-    );
-    
-
-
-    
-
-
-
-
-
+})
