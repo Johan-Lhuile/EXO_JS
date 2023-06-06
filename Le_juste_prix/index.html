@@ -11,20 +11,18 @@
 <body>
     <header>
         <h1>LE JUSTE PRIX</h1>
-        <p>Voici le jeu du juste prix, tentez votre chance et trouvé le chiffre caché entre 1 et 100.
+        <p>Voici le jeu du juste prix, tentez votre chance et trouvé le chiffre caché entre 1 et 100. <br>
         Vous avez 10 essais pour trouver et gagner un superbe lot
         </p>
     </header>
-
-    <h3 id="messageh3"></h3>
-    <h3 id="decompte"></h3>
-
-    <input type="number" id="essaiInput">
-
-    
-    
-    <button id="valider">Valider ma réponse</button>
-    <button type="button" id="reload" onclick="window.location.reload()" >Recommencer</button>
-
+    <div id="messages">
+        <div id="messageh3"></div>
+        <div id="decompte"></div>
+    </div>
+    <div class="essais">
+        <input type="number" id="essaiInput">
+        <button id="valider">Valider ma réponse</button>
+        <button type="button" id="reload" onclick="window.location.reload()" >Recommencer</button>
+    </div>
 </body>
 </html>
