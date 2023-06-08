@@ -1,30 +1,88 @@
 const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M ', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
 const mots = ["vrai", "carpe", "poisson", "alpha", "soleil", "nature"];
-let i = 0;
+
+
+
 let random_mots = mots[Math.floor(Math.random() * mots.length)];
-let mot_à_trouver = random_mots.split("");
-let lettre = document.querySelector ("#input");
+
+let mot_eclater = random_mots.split("");
+let wordcrypter = "";
 let essai_lettre = "";
-
-
+let verif = ""
+let worddecrypter = "";
+let keyLowerCase = "";
+let wordHtml = [];
 console.log(random_mots);
-console.log(mot_à_trouver);                                 //! a faire: generer le clavier virtuel 
+// console.log(mot_eclater);   
 
-lettre.addEventListener("keydown", function (e) {
+
+
+
+//? -----------------------------------------------------------------------------
+                //?------function de cryptage------------
+//? -----------------------------------------------------------------------------
+function crypter() {
+
+    wordcrypter= random_mots.replace(/[a-z]/g, "*")
+        // console.log(wordcrypter);
+}
+        function afficher() {
+            const mot_cacher = document.querySelector(".mot-cacher");
+            mot_cacher.textContent = wordcrypter
+};
+//? -------------------------------fin----------------------------------------------
+                //?------function de Décryptage------------
+//? -----------------------------------------------------------------------------
+function decrypter(i) {
+
+    worddecrypter = wordcrypter.replace(/[*]/, keyLowerCase)
+        console.log(worddecrypter);
+}
+
+//? --------------------------------fin---------------------------------------------
+                //?------function de comparaison------------
+//? -----------------------------------------------------------------------------                                                      
+document.addEventListener("keydown", function (e) {
 
     console.log(e.key);
-    essai_lettre = e.key.toLowerCase();
 
-        // if (essai_lettre != random_mots.forEach) {
-        //     return false;                              //! a faire: -1 chance et afficher la lettre essayer
-        // }
+        keyLowerCase = e.key.toLowerCase();                  //! a faire: generer le clavier virtuel 
+        console.log(keyLowerCase);
 
-        if (e.key == random_mots.forEach) {             //! n'arrive pas a comparer le mot et la lettre
-
-            console.log("ok");                           //! a faire: reveler la lettre cacher
-        }
-
-    lettre.value = "";
-
+        mot_eclater.forEach(function(verif) {
+            // console.log(verif);
+            if (keyLowerCase == verif) {             
+                console.log("ok");    
+                WordDisable();
+        
+        } 
+        });
+                                                       //! a faire: -1 chance et afficher la lettre essayer
 });
+
+//? -----------------------------------------------------------------------------
+                //?------function de tableau mot crypterhtml------------
+//? -----------------------------------------------------------------------------
+function WordDisable() {
+
+    console.log(mot_eclater.IndexOf(keyLowerCase));
+
+    wordNb = random_mots.length;
+    console.log(wordNb);
+        for (let i = 0; i < wordNb; i++) {
+            wordHtml.push("*");
+            console.log(wordHtml);
+            }
+    
+}
+
+
+//? --------------------------------fin--------------------------------------------
+                //?------function de comparaison------------
+//? ----------------------------------------------------------------------------
+
+crypter();
+afficher();
+// decrypter();
 
