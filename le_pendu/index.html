@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="./tableaudemots.js"></script>
     <script src="./script.js" defer></script>
 </head>
 <body>
 
     <header>
         <h1>LE PENDU</h1>
+
+        <h2>Taper les lettres au clavier pour dévoiler le mot a trouver </h2>
+        <p>la bibliotheque contient 2642 mots...bonne chance!!! </p>
     </header>
 
     <main>
-        
+        <button id="restart">Recommencer</button>
         <div class="mot-cacher"></div>
+        <div class="image"><img id="image" src="./Le-Pendu-one-line.png" alt=""></div>
         <div class="clavier">
             <button value="a" class="touche">A</button>
             <button value="z" class="touche">Z</button>

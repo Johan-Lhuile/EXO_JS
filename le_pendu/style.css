@@ -1,12 +1,13 @@
-h1 {
+h1, h2, p {
     text-align: center;
 }
 
 .mot-cacher {
     font-size: 2em;
-    margin: 150px;
+    margin: 50px auto;
     background-color: brown;
-    width: 30%;
+    width: 25%;
+    text-align: center;
 }
 
 .clavier {
@@ -23,10 +24,32 @@ h1 {
     width: 80px;
     height: 80px;
     background-color: black;
-    color: red;
+    color: white;
     font-size: 2em;
     font-weight: 600;
     margin: 5px;
     align-items: center;
     justify-content: center;
+}
+
+.bonneLettre {
+    color: green;
+}
+
+.mauvaiseLettre {
+    color: rgb(177, 0, 0);
+}
+
+.image {
+    
+    margin: 80px auto;
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    border: 2px solid;
+}
+
+img {
+    height: 250px;
+    
 }
