@@ -3,15 +3,15 @@
 
 //! ---- Variables -----
 
-// let tableauDeMotsATrouver;
-// Créer une constante qui va sélectionner un mot du tableauDeMots; -> index (7)
-// Créer une nouvelle constante (LeMotADeviner) qui va récupérer la valeur de l'index choisi auparavant dans tableauDeMots; en tant que mot. -> index.value (voiture)
-// 7 tentatives possible pour l'utilisateur. remainingAttempts = 7; Ré-utilisable pour l'affichage -> On peut selection un element HTML et l'afficher dessus. 
+//* let tableauDeMotsATrouver;
+//* Créer une constante qui va sélectionner un mot du tableauDeMots; -> index (7)
+//* Créer une nouvelle constante (LeMotADeviner) qui va récupérer la valeur de l'index choisi auparavant dans tableauDeMots; en tant que mot. -> index.value (voiture)
+//* 7 tentatives possible pour l'utilisateur. remainingAttempts = 7; Ré-utilisable pour l'affichage -> On peut selection un element HTML et l'afficher dessus. 
 // Constante affichageDesAttempts -> document.querySelector(.resultScoreAttempts).textContent;
-// Variable LeMotEnVersionCachée.split(''); voiture => *O***** 
-// Variable de stockage du mot 
-// Variable messageDeFin 
-// const buttonRestart (c'est un bouton HTML) .querySelector
+//* Variable LeMotEnVersionCachée.split(''); voiture => *O***** 
+//* Variable de stockage du mot 
+//* Variable messageDeFin 
+//* const buttonRestart (c'est un bouton HTML) .querySelector
 
 
 //? KISS : Keep it simple stupid. 
