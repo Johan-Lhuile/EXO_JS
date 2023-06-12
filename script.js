@@ -13,7 +13,7 @@
 //* Variable messageDeFin 
 //* const buttonRestart (c'est un bouton HTML) .querySelector
 
-
+//? DRY: Don't Repeat Yourself
 //? KISS : Keep it simple stupid. 
 
 

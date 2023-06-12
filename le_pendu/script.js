@@ -3,7 +3,7 @@ let random_tableau_mots = tableau_mots[Math.floor(Math.random() * tableau_mots.l
 let clean_word = random_tableau_mots.replace(/[é;è;ê;ë]/g,'e');(/[à]/,'a');(/[ï]/,'i'); 
 let indexDuMot
 let wordHtml = [];
-let essais_restant = 7;
+let essais_restant = 7;                 //! flitrage des apostrophes
 let restart;
 let touchepresser;
 let space = ' ';
@@ -52,10 +52,23 @@ function decrypter(letters) {
 //* -----------------------------------------------------------------------------
                                                                         
     crypter();
-        document.addEventListener("keydown", function (touchepresser) {
+
+    const button = document.querySelectorAll('.touche');
+    console.log(button);
+    for (let i = 0; i < button.length; i++) {
+        button[i].addEventListener('click', function(event){
+        console.log(this.value);
+    })
+    };
+    
+
+    document.addEventListener("keydown", function (touchepresser) {});
+        
+    function comparaison(touchepresser) {    
+        
         let essai = false;
         
-        for (letters of clean_word.split("")){
+        for (letters of clean_word.split("")){                          //* letters = i de la boucle for
             if (letters.toLowerCase() === touchepresser.key) {
                 console.log("ok");
                 
@@ -77,8 +90,10 @@ function decrypter(letters) {
             if (clean_word === wordHtml.join("") ) {
                 Winner();
             }
-        });
         
+    };    
+
+    comparaison(touchepresser.key);
 //* --------------------------------fin--------------------------------------------
                 //*------function de bonne lettre  ------------
 //* -------------------------------------------------------------------------------
@@ -125,6 +140,7 @@ function decrypter(letters) {
 //* -------------------------------fin----------------------------------------------
                 //*------function pour clic clavier virtuel------------
 //* --------------------------------------------------------------------------------
+
 
 
 
