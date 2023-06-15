@@ -97,3 +97,5 @@ submit.addEventListener("click", function () {
         essai.value = "";
     }
 })
+
+

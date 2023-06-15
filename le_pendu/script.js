@@ -1,12 +1,13 @@
 
 let random_tableau_mots = tableau_mots[Math.floor(Math.random() * tableau_mots.length)];
-let clean_word = random_tableau_mots.replace(/[é;è;ê;ë]/g,'e');(/[à]/,'a');(/[ï]/,'i'); 
+let clean_word = random_tableau_mots.replace(/[é;è;ê;ë]/,'e');  //*  (/[à]/,'a') ;(/[ï]/,'i'); 
 let indexDuMot
 let wordHtml = [];
 let essais_restant = 7;                 //! flitrage des apostrophes
 let restart;
-let touchepresser;
+let touchepresser = "";
 let space = ' ';
+let letters;
 
 
 console.log("mot a trouver = " + random_tableau_mots);   
@@ -37,7 +38,8 @@ for (let i = 0; i < wordNb; i++ ) {                                             
 function decrypter(letters) {
     for (let i = 0; i < wordNb; i++ ) {                                                 //* la boucle for me permet d'afficher les 2 lettres (ex: les 2 "s" de poisson)
     indexDuMot = clean_word.split("").indexOf(letters, i)      
-    // console.log(indexDuMot);
+    console.log(indexDuMot);
+    console.log(clean_word.split(""));
 
     if ( indexDuMot >= 0){
        wordHtml.splice(indexDuMot, 1,letters);                                          //! .splice  si -1 recommence par la fin donc if index >= 0
@@ -50,38 +52,24 @@ function decrypter(letters) {
 //* -----------------------------fin---------------------------------------------
                 //*------function de Comparaison------------
 //* -----------------------------------------------------------------------------
-                                                                        
-    crypter();
+  
 
-    const button = document.querySelectorAll('.touche');
-    console.log(button);
-    for (let i = 0; i < button.length; i++) {
-        button[i].addEventListener('click', function(event){
-        console.log(this.value);
-    })
-    };
-    
-
-    document.addEventListener("keydown", function (touchepresser) {});
-        
     function comparaison(touchepresser) {    
-        
         let essai = false;
-        
         for (letters of clean_word.split("")){                          //* letters = i de la boucle for
-            if (letters.toLowerCase() === touchepresser.key) {
+            if (letters.toLowerCase() === touchepresser) {
                 console.log("ok");
-                
+                console.log(letters);
                 decrypter(letters);
                 good();
                 essai = true;
             } 
             }                                                                              
-        
+       
             if ( essai === false) {
             mauvaiseLettre();
                 
-            console.log(touchepresser.key);
+            // console.log(touchepresser);
             document.querySelector(".touche").style.color = "red"
             }
             if (essais_restant === 0) {
@@ -93,12 +81,12 @@ function decrypter(letters) {
         
     };    
 
-    comparaison(touchepresser.key);
+    
 //* --------------------------------fin--------------------------------------------
                 //*------function de bonne lettre  ------------
 //* -------------------------------------------------------------------------------
     function good() {    
-        document.querySelector(".touche").style.color = "green"
+        // document.querySelector(".touche").style.color = "green"
                                                                                             //* changement de couleur des lettre deja essayer
     }
 //* --------------------------------fin--------------------------------------------
@@ -118,7 +106,7 @@ function decrypter(letters) {
         //* animations you Win + restart  + (++score total)
         function Winner() {
 
-        alert("BRAVO!!! Le mot était " + random_tableau_mots.toUpperCase() + " Vous avez GANGNER, on continue...");
+        alert("BRAVO!!! Le mot était " + random_tableau_mots.toUpperCase() + " Vous avez GAGNER, on continue...");
         window.location.reload();
         }
 //* --------------------------------fin--------------------------------------------
@@ -138,9 +126,25 @@ function decrypter(letters) {
     });
     
 //* -------------------------------fin----------------------------------------------
-                //*------function pour clic clavier virtuel------------
+                        //*------EVENT------------
 //* --------------------------------------------------------------------------------
+    crypter();
 
 
+    const button = document.querySelectorAll('.touche');
+        // console.log(button);
+    for (let i = 0; i < button.length; i++) {
+        button[i].addEventListener('click', function(event){
+        // console.log(this.value);
+        comparaison(this.value);
+    })
+    };
 
-
+                                                                        
+    document.addEventListener("keydown", function (event) {
+        
+        touchepresser = event.key
+        console.log(touchepresser);
+        document.querySelector(".touche").style.color = "green"
+        comparaison(event.key);
+     }); 
